@@ -5,7 +5,7 @@ function newItem(){
     //let li = document.createElement("li");
         let li = $('<li></li>');
     //let inputValue = document.getElementById("input").value;
-        let inputValue= $('#input').value(); 
+        let inputValue= $('#input').val; 
     //let text = document.createTextNode(inputValue);
     //li.appendChild(text);
         li.append(inputValue);
@@ -13,18 +13,17 @@ function newItem(){
         if (inputValue === '') {
             alert('You must write something!');
         } else {
-            $('#list').append(li);
+            let list = $('#list').append(li)
         }
         
         //2. Crossing out an item from the list of items:
         function crossOut() {
-                li.toggleClass('.strike');
-            }
-            li.on('dblclick', function (crossOut(){
-                li.toggleClass('.strike');
-            });
-        
-
+            li.toggleClass('strike');
+                }
+            li.on( dbclick, function crossOut(){
+                li.crossOut('strike');
+        });
+    
             
         //3(i). Adding the delete button "X": 
         /*let crossOutButton = document.createElement("crossOutButton");
@@ -35,27 +34,20 @@ function newItem(){
 
 
         let crossOutButton = $('<crossOutButton> </crossOutButton>');
-            deleteButton.appendChild (document.createTextNode('X'));
+            crossOutButton.append(document.createTextNode('X'));
             li.append(crossOutButton); 
 
-        crossOutButton.on('click', deleteListItem);
+        crossOutButton.on(click, deleteListItem)
+
         //3(ii). Adding CLASS DELETE (DISPLAY: NONE) from the css:
         /*function deleteListItem(){
                 li.classList.add("delete")
             }*/
         
         function deleteListItem(){
-            li.addClass('deleted')
+            li.addClass('delete')
         }
            
-
         // 4. Reordering the items: 
         $('#list').sortable();
-        
-    
-        
-     
-    
-    
-    
-    
+        }
